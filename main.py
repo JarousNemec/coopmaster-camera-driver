@@ -1,2 +1,6 @@
+from app import app
+from config import Config
+
 if __name__ == '__main__':
-    print("Hello from camera driver!")
+    print(Config.hello_msg)
+    app.run()
