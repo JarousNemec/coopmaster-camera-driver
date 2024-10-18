@@ -1,1 +1,1 @@
-# CoopMaster-camera_driver
+# coopmaster-camera-driver
