@@ -17,7 +17,7 @@ def init_logger():
     if not os.path.exists(config_dir):
         os.makedirs(config_dir)
 
-    log_file_path = os.path.join(config_dir, "bizerba-statistic.log")
+    log_file_path = os.path.join(config_dir, configuration.get_log_filename())
     handler = RotatingFileHandler(log_file_path, maxBytes=1024 * 1024 * 20,
                                   backupCount=10, mode='a')
     handler.setFormatter(DEFAULT_FMT)
@@ -33,7 +33,8 @@ def init_logger():
     logger = logging.getLogger()
     logger.info( f"Log  file path {log_file_path}." )
     with open("app/resources/banner.txt") as f:
-        logger.info(f.read())
+        for line in f.readlines():
+            logger.info(line.strip())
 
     return logger_i
 

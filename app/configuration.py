@@ -1,8 +1,13 @@
 import os
 
 host = "127.0.0.1"
-port = 80
+port = 9001
+hello_message = "Hello from camera driver"
 
+log_file_name = "logger.log"
 
 def get_log_directory():
-    return "./"
+    return "./logs/"
+
+def get_log_filename():
+    return log_file_name;

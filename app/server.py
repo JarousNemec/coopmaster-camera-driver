@@ -1,8 +1,10 @@
 import logging
 
 from flask import Flask
-from config import Config
 from waitress import serve
+
+from app import configuration
+
 
 def flask_app():
     app = Flask('__main__')
@@ -10,12 +12,12 @@ def flask_app():
     @app.route("/")
     def hello_world():
         logging.info("Hello World!")
-        return Config.hello_msg
+        return configuration.hello_message
 
     return app
 
-def server(host: str = None, port: int = None, ssl: bool = False):
+def server(host: str = "127.0.0.1", port: int = 80, ssl: bool = False):
     manager_app = flask_app()
 
-    logging.info("Serving on http://127.0.0.1:9001")
-    serve(manager_app,  port=9001)
+    logging.info("Serving on http://"+configuration.host+":"+str(port))
+    serve(manager_app,  port=port)
