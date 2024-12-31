@@ -33,5 +33,6 @@ def server():
     manager_app = flask_app()
     host = configuration.config.HOST
     port = configuration.config.PORT
+    logging.info(f"Serving on http://{host}:{port}/api/cam1/image")
     logging.info(f"Serving on http://{host}:{port}/api/cam2/image")
     serve(manager_app,  port=port)
