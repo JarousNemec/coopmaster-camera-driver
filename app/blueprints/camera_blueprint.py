@@ -12,19 +12,19 @@ from app import configuration
 camera_blueprint = Blueprint('camera_blueprint', __name__)
 
 
-@camera_blueprint.route("/api/cam1/image", methods=['GET'])
-def get_actual_image_cam1():
-    camera_ip = configuration.config.CAM1_CAMERA_IP
-    camera_user = configuration.config.CAM1_CAMERA_USERNAME
-    camera_password = configuration.config.CAM1_CAMERA_PASSWORD
+@camera_blueprint.route("/api/dog/image", methods=['GET'])
+def get_actual_image_dog():
+    camera_ip = configuration.config.DOG_CAMERA_IP
+    camera_user = configuration.config.DOG_CAMERA_USERNAME
+    camera_password = configuration.config.DOG_CAMERA_PASSWORD
     return get_image(camera_ip, camera_user, camera_password)
 
 
-@camera_blueprint.route("/api/cam2/image", methods=['GET'])
-def get_actual_image_cam2():
-    camera_ip = configuration.config.CAM2_CAMERA_IP
-    camera_user = configuration.config.CAM2_CAMERA_USERNAME
-    camera_password = configuration.config.CAM2_CAMERA_PASSWORD
+@camera_blueprint.route("/api/chicken/image", methods=['GET'])
+def get_actual_image_chicken():
+    camera_ip = configuration.config.CHICKEN_CAMERA_IP
+    camera_user = configuration.config.CHICKEN_CAMERA_USERNAME
+    camera_password = configuration.config.CHICKEN_CAMERA_PASSWORD
     return get_image(camera_ip, camera_user, camera_password)
 
 

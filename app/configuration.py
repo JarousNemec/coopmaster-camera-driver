@@ -20,13 +20,13 @@ class AppConfig:
     PORT: int = 9001
     HOST: str = "127.0.0.1"
 
-    CAM1_CAMERA_IP: str = '192.168.1.65'  # Replace with your camera's IP
-    CAM1_CAMERA_USERNAME: str = 'admin'  # Replace with your camera's username
-    CAM1_CAMERA_PASSWORD: str = 'Heslo123456*'  # Replace with your camera's password
+    CHICKEN_CAMERA_IP: str = '192.168.1.65'  # Replace with your camera's IP
+    CHICKEN_CAMERA_USERNAME: str = 'admin'  # Replace with your camera's username
+    CHICKEN_CAMERA_PASSWORD: str = 'Heslo123456*'  # Replace with your camera's password
 
-    CAM2_CAMERA_IP: str = '192.168.1.65'  # Replace with your camera's IP
-    CAM2_CAMERA_USERNAME: str = 'admin'  # Replace with your camera's username
-    CAM2_CAMERA_PASSWORD: str = 'Heslo123456*'  # Replace with your camera's password
+    DOG_CAMERA_IP: str = '192.168.1.65'  # Replace with your camera's IP
+    DOG_CAMERA_USERNAME: str = 'admin'  # Replace with your camera's username
+    DOG_CAMERA_PASSWORD: str = 'Heslo123456*'  # Replace with your camera's password
 
     """
     Map environment variables to class fields according to these rules:
