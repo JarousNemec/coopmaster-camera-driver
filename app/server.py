@@ -1,9 +1,15 @@
 import logging
+from flask import Flask, send_file, Response
+import requests
+from io import BytesIO
 
-from flask import Flask
+from requests import Response
+from requests.auth import HTTPDigestAuth
 from waitress import serve
 
 from app import configuration
+from app.blueprints.admin_blueprint import admin_blueprint
+from app.blueprints.camera_blueprint import camera_blueprint
 
 
 def flask_app():
@@ -11,13 +17,21 @@ def flask_app():
 
     @app.route("/")
     def hello_world():
-        logging.info("Hello World!")
-        return configuration.hello_message
+        message = "Hello from camera gobbler"
+        logging.info(message)
+        return message
+
+    app.register_blueprint(camera_blueprint)
+    app.register_blueprint(admin_blueprint)
+
+
 
     return app
 
-def server(host: str = "127.0.0.1", port: int = 80, ssl: bool = False):
-    manager_app = flask_app()
 
-    logging.info("Serving on http://"+configuration.host+":"+str(port))
+def server():
+    manager_app = flask_app()
+    host = configuration.config.HOST
+    port = configuration.config.PORT
+    logging.info(f"Serving on http://{host}:{port}/api/cam2/image")
     serve(manager_app,  port=port)
