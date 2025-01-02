@@ -1,10 +1,6 @@
 import logging
-from flask import Flask, send_file, Response
-import requests
-from io import BytesIO
+from flask import Flask
 
-from requests import Response
-from requests.auth import HTTPDigestAuth
 from waitress import serve
 
 from app import configuration
@@ -17,14 +13,12 @@ def flask_app():
 
     @app.route("/")
     def hello_world():
-        message = "Hello from camera gobbler"
+        message = "Coopmaster camera driver"
         logging.info(message)
         return message
 
     app.register_blueprint(camera_blueprint)
     app.register_blueprint(admin_blueprint)
-
-
 
     return app
 

@@ -1,3 +1,5 @@
+import logging
+
 from flask import Flask, send_file, Response
 import requests
 from io import BytesIO
@@ -17,6 +19,7 @@ def get_actual_image_dog():
     camera_ip = configuration.config.DOG_CAMERA_IP
     camera_user = configuration.config.DOG_CAMERA_USERNAME
     camera_password = configuration.config.DOG_CAMERA_PASSWORD
+    logging.info(f"Getting image from dog camera: {camera_ip}")
     return get_image(camera_ip, camera_user, camera_password)
 
 
@@ -25,6 +28,7 @@ def get_actual_image_chicken():
     camera_ip = configuration.config.CHICKEN_CAMERA_IP
     camera_user = configuration.config.CHICKEN_CAMERA_USERNAME
     camera_password = configuration.config.CHICKEN_CAMERA_PASSWORD
+    logging.info(f"Getting image from chicken camera: {camera_ip}")
     return get_image(camera_ip, camera_user, camera_password)
 
 
