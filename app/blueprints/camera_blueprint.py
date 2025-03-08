@@ -39,7 +39,7 @@ def get_image(camera_ip, user, password):
 
     try:
         # Fetch the image from the camera
-        response = requests.get(url, auth= (user, password), stream=True)
+        response = requests.get(url, auth=HTTPDigestAuth(user, password), stream=True)
         response.raise_for_status()  # Raise an error for bad responses
 
         # Read the image into memory
